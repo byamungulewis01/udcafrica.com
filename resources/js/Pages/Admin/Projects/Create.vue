@@ -37,9 +37,10 @@ const form = useForm({
     content: '',
     featured_image: null,
     client: '',
-    duration: '',
+    year_of_completion: '',
     location: '',
-    contractor: '',
+    architect: '',
+    size: '',
     gallery: [],
     is_featured: false,
     is_published: false,
@@ -186,17 +187,17 @@ const hasFieldError = (fieldName) => {
                             </p>
                         </div>
                         <div class="space-y-2">
-                            <Label for="duration">Duration</Label>
-                            <Input id="duration" v-model="form.duration" required
-                                placeholder="e.g., 6 months, 2022-2023"
-                                :class="{ 'border-red-500 focus:border-red-500': hasFieldError('duration') }" />
-                            <p v-if="getFieldError('duration')" class="text-sm text-red-600">
-                                {{ getFieldError('duration') }}
+                            <Label for="year_of_completion">Year of Completion</Label>
+                            <Input id="year_of_completion" v-model="form.year_of_completion" required
+                                placeholder="e.g., 2022"
+                                :class="{ 'border-red-500 focus:border-red-500': hasFieldError('year_of_completion') }" />
+                            <p v-if="getFieldError('year_of_completion')" class="text-sm text-red-600">
+                                {{ getFieldError('year_of_completion') }}
                             </p>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div class="space-y-2">
                             <Label for="location">Location</Label>
                             <Input id="location" v-model="form.location"
@@ -206,11 +207,19 @@ const hasFieldError = (fieldName) => {
                             </p>
                         </div>
                         <div class="space-y-2">
-                            <Label for="contractor">Contractor</Label>
-                            <Input id="contractor" v-model="form.contractor"
-                                :class="{ 'border-red-500 focus:border-red-500': hasFieldError('contractor') }" />
-                            <p v-if="getFieldError('contractor')" class="text-sm text-red-600">
-                                {{ getFieldError('contractor') }}
+                            <Label for="size">Size</Label>
+                            <Input id="size" v-model="form.size"
+                                :class="{ 'border-red-500 focus:border-red-500': hasFieldError('size') }" />
+                            <p v-if="getFieldError('size')" class="text-sm text-red-600">
+                                {{ getFieldError('size') }}
+                            </p>
+                        </div>
+                        <div class="space-y-2">
+                            <Label for="architect">Architect</Label>
+                            <Input id="architect" v-model="form.architect"
+                                :class="{ 'border-red-500 focus:border-red-500': hasFieldError('architect') }" />
+                            <p v-if="getFieldError('architect')" class="text-sm text-red-600">
+                                {{ getFieldError('architect') }}
                             </p>
                         </div>
                     </div>

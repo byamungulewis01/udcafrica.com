@@ -18,9 +18,10 @@ return new class extends Migration {
             $table->text('content');
             $table->string('featured_image')->nullable();
             $table->string('client');
-            $table->string('duration');
+            $table->string('year_of_completion');
             $table->string('location')->nullable();
-            $table->string('contractor')->nullable();
+            $table->string('architect')->nullable();
+            $table->string('size')->nullable();
             $table->json('gallery')->nullable();
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_published')->default(false);

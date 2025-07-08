@@ -1,29 +1,33 @@
 <?php
 
-use App\Http\Controllers\BlogCategoryController;
+use App\Models\Blog;
 use Inertia\Inertia;
+use App\Models\Project;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SettingController;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\ProjectCategoryController;
-use App\Http\Controllers\NewsController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\PartnershipController;
+use App\Http\Controllers\BlogCategoryController;
 use App\Http\Controllers\ContactRequestController;
-use App\Http\Controllers\WebsiteController;
-use Spatie\Sitemap\Sitemap;
-use Spatie\Sitemap\Tags\Url;
+use App\Http\Controllers\ProjectCategoryController;
 
 Route::get('/', [WebsiteController::class, 'home'])->name('home');
 Route::get('/services', [WebsiteController::class, 'services'])->name('services');
 Route::get('/projects', [WebsiteController::class, 'projects'])->name('projects');
+Route::get('/projects/{slug}', [WebsiteController::class, 'projectDetails'])->name('project.details');
 Route::get('/about', [WebsiteController::class, 'about'])->name('about');
 Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
 Route::get('/blog', [WebsiteController::class, 'blog'])->name('blog');
+Route::get('/blog/{slug}', [WebsiteController::class, 'blogDetails'])->name('blog.details');
 
 Route::post('/contact', [ContactRequestController::class, 'store'])->name('contact.store');
 
@@ -105,11 +109,20 @@ Route::get('/sitemap.xml', function () {
     $sitemap = Sitemap::create()
         ->add(Url::create('/'))
         ->add(Url::create('/services'))
-        ->add(Url::create('/all-products'))
         ->add(Url::create('/about'))
-        ->add(Url::create('/contact'));
-        // ->add(Url::create('/blogs'));
+        ->add(Url::create('/contact'))
+        ->add(Url::create('/blog'))
+        ->add(Url::create('/projects'));
+
     // Add more URLs as needed, e.g., dynamic blog posts, products, etc.
+    $blogs = Blog::where('is_published', true)->get();
+    foreach ($blogs as $blog) {
+        $sitemap->add(Url::create('/blog/' . $blog->slug));
+    }
+    $projects = Project::where('is_published', true)->get();
+    foreach ($projects as $project) {
+        $sitemap->add(Url::create('/projects/' . $project->slug));
+    }
     return $sitemap->toResponse(request());
 });
 

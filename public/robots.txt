@@ -4,4 +4,4 @@ Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
 
-Sitemap: https://resilience.rw/sitemap.xml
+Sitemap: https://udcafrica.com/sitemap.xml

@@ -8,7 +8,6 @@ use Inertia\Inertia;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -46,7 +45,7 @@ class ProjectController extends Controller
     {
         try {
             $request->validate([
-                'title' => 'required|string|min:10|max:255',
+                'title' => 'required|string|min:3|max:255',
                 'slug' => [
                     'nullable',
                     'string',
@@ -58,9 +57,10 @@ class ProjectController extends Controller
                 'content' => 'required|string',
                 'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
                 'client' => 'required|string|max:255',
-                'duration' => 'required|string|max:255',
+                'year_of_completion' => 'required|string|max:255',
                 'location' => 'nullable|string|max:255',
-                'contractor' => 'nullable|string|max:255',
+                'architect' => 'nullable|string|max:255',
+                'size' => 'nullable|string|max:255',
                 'gallery' => 'nullable|array',
                 'gallery.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
                 'is_featured' => 'boolean',
@@ -73,18 +73,21 @@ class ProjectController extends Controller
 
             $data = $request->all();
 
-            // Handle featured image upload
+            // Handle featured image upload (move to public/storage/projects)
             if ($request->hasFile('featured_image')) {
-                $imagePath = $request->file('featured_image')->store('projects', 'public');
-                $data['featured_image'] = Storage::url($imagePath);
+                $image = $request->file('featured_image');
+                $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('storage/projects'), $imageName);
+                $data['featured_image'] = '/storage/projects/' . $imageName;
             }
 
-            // Handle gallery images upload
+            // Handle gallery images upload (move to public/uploads/projects/gallery)
             if ($request->hasFile('gallery')) {
                 $galleryPaths = [];
                 foreach ($request->file('gallery') as $file) {
-                    $imagePath = $file->store('projects/gallery', 'public');
-                    $galleryPaths[] = Storage::url($imagePath);
+                    $galleryName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path('storage/projects/gallery'), $galleryName);
+                    $galleryPaths[] = '/storage/projects/gallery/' . $galleryName;
                 }
                 $data['gallery'] = $galleryPaths;
             }
@@ -136,7 +139,7 @@ class ProjectController extends Controller
     {
         try {
             $request->validate([
-                'title' => 'required|string|min:10|max:255',
+                'title' => 'required|string|min:3|max:255',
                 'slug' => [
                     'nullable',
                     'string',
@@ -148,9 +151,10 @@ class ProjectController extends Controller
                 'content' => 'required|string',
                 'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
                 'client' => 'required|string|max:255',
-                'duration' => 'required|string|max:255',
+                'year_of_completion' => 'required|string|max:255',
                 'location' => 'nullable|string|max:255',
-                'contractor' => 'nullable|string|max:255',
+                'architect' => 'nullable|string|max:255',
+                'size' => 'nullable|string|max:255',
                 'gallery' => 'nullable|array',
                 'gallery.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
                 'is_featured' => 'boolean',
@@ -163,33 +167,36 @@ class ProjectController extends Controller
 
             $data = $request->all();
 
-            // Handle featured image upload
+            // Handle featured image upload (move to public/storage/projects)
             if ($request->hasFile('featured_image')) {
-                // Delete old featured image if exists
-                if ($project->featured_image) {
-                    Storage::disk('public')->delete(str_replace('/storage/', '', $project->featured_image));
+                // Delete old featured image if exists and is a local file
+                if ($project->featured_image && file_exists(public_path($project->featured_image))) {
+                    @unlink(public_path($project->featured_image));
                 }
-
-                $imagePath = $request->file('featured_image')->store('projects', 'public');
-                $data['featured_image'] = Storage::url($imagePath);
+                $image = $request->file('featured_image');
+                $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('storage/projects'), $imageName);
+                $data['featured_image'] = '/storage/projects/' . $imageName;
             } else {
                 // Keep existing featured image
                 $data['featured_image'] = $project->featured_image;
             }
 
-            // Handle gallery images upload
+            // Handle gallery images upload (move to public/uploads/projects/gallery)
             if ($request->hasFile('gallery')) {
-                // Delete old gallery images if exist
+                // Delete old gallery images if exist and are local files
                 if ($project->gallery) {
                     foreach ($project->gallery as $image) {
-                        Storage::disk('public')->delete(str_replace('/storage/', '', $image));
+                        if ($image && file_exists(public_path($image))) {
+                            @unlink(public_path($image));
+                        }
                     }
                 }
-
                 $galleryPaths = [];
                 foreach ($request->file('gallery') as $file) {
-                    $imagePath = $file->store('projects/gallery', 'public');
-                    $galleryPaths[] = Storage::url($imagePath);
+                    $galleryName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path('storage/projects/gallery'), $galleryName);
+                    $galleryPaths[] = '/storage/projects/gallery/' . $galleryName;
                 }
                 $data['gallery'] = $galleryPaths;
             } else {
@@ -216,14 +223,16 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         try {
-            // Delete featured image if exists
-            if ($project->featured_image) {
-                Storage::disk('public')->delete($project->featured_image);
+            // Delete featured image if exists and is a local file
+            if ($project->featured_image && file_exists(public_path($project->featured_image))) {
+                @unlink(public_path($project->featured_image));
             }
-            // Delete gallery images if exists
+            // Delete gallery images if exists and are local files
             if ($project->gallery) {
                 foreach ($project->gallery as $image) {
-                    Storage::disk('public')->delete($image);
+                    if ($image && file_exists(public_path($image))) {
+                        @unlink(public_path($image));
+                    }
                 }
             }
 

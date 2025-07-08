@@ -89,19 +89,19 @@ const currentSlide = ref(0)
 
 const slides = [
   {
-    title: "Universal Design & Construction Ltd",
-    subtitle: "We are a dynamic architectural design and construction firm with a team of professionals . ",
-    image: "/carousel-1-2-scaled-1.jpg",
+    title: "Universal Design & Construction Africa Ltd",
+    subtitle: "A design and construction company delivering innovative, sustainable, and cost-effective buildings across the region.",
+    image: "/Hello-section-1.jpg",
   },
   {
-    title: "We building for a better future",
-    subtitle: "With a focus on innovation and sustainability, we bring dreams to life. Engineering,",
-    image: "/Cost-Estimation (1).webp",
+    title: "Engineering the future, Building with purpose.",
+    subtitle: "We shape environments that empower communities, drive innovation, and stand the test of time.",
+    image: "/Hello-section-2.jpg",
   },
   {
-    title: "Trusted by Rwanda's Leading Institutions",
-    subtitle: "Award-winning expertise in architecture, engineering, and project management",
-    image: "/Land.webp",
+    title: "Construction Excellence Redefined",
+    subtitle: "Every project is a fusion of advanced engineering and intentional design, built to serve today and inspire tomorrow.",
+    image: "/Hello-section-3.jpg",
   }
 ]
 

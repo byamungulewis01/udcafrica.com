@@ -1,25 +1,25 @@
 const projectsData = [
   {
-    id: "kigali-heights",
-    title: "Kigali Heights",
-    category: "Residential",
-    location: "Kigali, Rwanda",
-    year: "2022",
-    size: "25,000 sq m",
+    id: "udc-project-1",
+    title: "Bugesera Family Residence",
+    category: "Uncategorized",
+    location: "Bugesera, Rwanda",
+    year: "20th July 2025",
+    size: "210 Sqm",
     client: "Kigali Heights Ltd",
-    architect: "UDC Africa",
+    architect: "UDC Africa Ltd",
     featured: true,
-    coverImage: "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    shortDescription: "A mixed-use development featuring office and retail space with stunning city views.",
-    description: "Kigali Heights is a UDC Africa mixed-use development that has transformed the city's skyline. The project combines modern architectural elements with local cultural influences.",
-    details: "The development features Grade A office space, retail areas, and underground parking. The design incorporates sustainable elements including natural ventilation and solar shading. The distinctive facade uses local materials and patterns inspired by traditional Rwandan design.",
+    coverImage: "/UDC-Project-1.jpg",
+    shortDescription: "This single-storied residential home is designed for modern family living with a focus on comfort, efficiency, and simplicity. Located in the growing district of towards Bugesera International Airport, the house offers a practical yet stylish layout tailored to everyday needs.",
+    description: "",
+    details: "The home features three well-sized bedrooms, an open-concept kitchen and living area that enhances natural light and connectivity, and a spacious backyard ideal for outdoor relaxation or future expansion. The design emphasizes both functionality and ease of maintenance, making it perfect for family life in a suburban setting.",
     gallery: [
-      "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      "https://images.pexels.com/photos/1743227/pexels-photo-1743227.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      "https://images.pexels.com/photos/276554/pexels-photo-276554.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1600"
+      "/UDC-Project-1-A.jpg",
+      "/UDC-Project-1-B.jpg",
+      "/UDC-Project-1-C.jpg",
+      "/UDC-Project-1-D.jpg"
     ],
-    awards: "2023 East African Architecture Award"
+    awards: ""
   },
   {
     id: "bugesera-airport",

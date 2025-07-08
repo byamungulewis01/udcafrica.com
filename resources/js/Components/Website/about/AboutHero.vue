@@ -3,7 +3,7 @@
     <div class="absolute inset-0 bg-gradient-to-t from-udc-gold/40 to-udc-dark/90 z-0"></div>
     <div class="absolute inset-0">
       <img
-        src="https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        src="/ABoutHelloImage.jpg"
         alt="Architecture studio"
         class="w-full h-full object-cover opacity-40"
       />
@@ -14,7 +14,7 @@
           About UDC Africa
         </h1>
         <p class="text-lg text-white leading-relaxed">
-          UDC Africa Ltd is a firm of Consulting Architects, Project Managers, Engineers, Quantity surveyors, and property valuers with offices in Kigali, Rwanda. UDC Africa Ltd started operation as a part of Africa Property Kigali in 2007 .
+            Founded by a team of passionate industry professionals, UDC was created to bridge the gap between design, engineering, and construction—delivering fully integrated, end-to-end solutions for Rwanda’s built environment.
         </p>
       </div>
     </div>

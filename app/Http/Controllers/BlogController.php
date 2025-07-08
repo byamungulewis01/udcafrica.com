@@ -60,10 +60,12 @@ class BlogController extends Controller
 
             $data = $request->all();
 
-            // Handle featured image upload
+            // Handle featured image upload (move to public/storage/blogs)
             if ($request->hasFile('featured_image')) {
-                $imagePath = $request->file('featured_image')->store('blogs', 'public');
-                $data['featured_image'] = Storage::url($imagePath);
+                $image = $request->file('featured_image');
+                $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('storage/blogs'), $imageName);
+                $data['featured_image'] = '/storage/blogs/' . $imageName;
             }
 
             // Generate slug if not provided
@@ -123,14 +125,16 @@ class BlogController extends Controller
 
             $data = $request->all();
 
-            // Handle featured image upload
+            // Handle featured image upload (move to public/uploads/blogs)
             if ($request->hasFile('featured_image')) {
-                // Delete old image
-                if ($blog->featured_image) {
-                    Storage::disk('public')->delete($blog->featured_image);
+                // Delete old image if exists and is a local file
+                if ($blog->featured_image && file_exists(public_path($blog->featured_image))) {
+                    @unlink(public_path($blog->featured_image));
                 }
-                $imagePath = $request->file('featured_image')->store('blogs', 'public');
-                $data['featured_image'] = Storage::url($imagePath);
+                $image = $request->file('featured_image');
+                $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('storage/blogs'), $imageName);
+                $data['featured_image'] = '/storage/blogs/' . $imageName;
             } else {
                 $data['featured_image'] = $blog->featured_image;
             }
@@ -156,9 +160,9 @@ class BlogController extends Controller
     public function destroy(Blog $blog)
     {
         try {
-            // Delete featured image if exists
-            if ($blog->featured_image) {
-                Storage::disk('public')->delete($blog->featured_image);
+            // Delete featured image if exists and is a local file
+            if ($blog->featured_image && file_exists(public_path($blog->featured_image))) {
+                @unlink(public_path($blog->featured_image));
             }
 
             $blog->delete();

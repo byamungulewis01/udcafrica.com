@@ -11,30 +11,38 @@ import teamData from '@/data/teamData.js'
 </script>
 
 <template>
-  <WebsiteLayout>
-    <Head title="About Us" />
-    <main class="bg-udc-light">
-      <AboutHero />
+    <WebsiteLayout>
 
-      <div class="container mx-auto px-4 py-24">
-        <div class="max-w-3xl mx-auto">
-          <h2 class="text-4xl font-light mb-8 tracking-tight text-udc-dark">Our Story</h2>
-          <div class="space-y-6 text-udc-dark text-base">
-            <p class="leading-relaxed">
-              The team is led and guided by the Managing Director, Mutuzo Remy also the Principal Architect of UDC Africa. Architect Kayumba Eudes is arguably one of the leading Architects in the region premised on the fact that he has dealt and spearheaded state of the art and life-changing projects within the region. Along with holding a Postgraduate in Architecture, he possesses a Masters in Building and Urban Design from the University College of London. He has over 20 years of professional expertise in the field of Design and construction.
-            </p>
-            <p class="leading-relaxed text-sm">
-              He is a member with Rwanda Institute of Architects, Institute of Rwanda Real Property Valuers & Arbitrator with Kigali International Arbitration Center. He has held numerous positions in the field of Architecture in Rwanda and Africa in general. Chairman- Architects Registration Board, President, Rwanda Institute of Architects, Vice Chairman East African Region, African Union of Architects and Chairman, Rwanda Green Building Organization.
-            </p>
-          </div>
-        </div>
-      </div>
+        <Head title="About Us" />
+        <main class="bg-udc-light">
+            <AboutHero />
 
-      <MissionValues />
-      <Timeline />
-      <Stats />
-      <TeamSection :team="teamData" />
-      <ContactCTA />
-    </main>
-  </WebsiteLayout>
+            <div class="container mx-auto px-4 py-24">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-4xl font-light mb-8 tracking-tight text-udc-dark">Our Story</h2>
+                    <div class="space-y-6 text-udc-dark text-base">
+                        <p class="leading-relaxed">
+                            Universal design and construction (UDC) Ltd was founded to bridge the gap between design,
+                            engineering, and construction; offering a fully integrated approach to building delivery.
+                            What started as a collaboration between industry professionals is growing into a trusted
+                            multidisciplinary company serving residential, commercial, and institutional projects across
+                            Rwanda.
+                        </p>
+                        <p class="leading-relaxed">
+                            We’re driven by a simple purpose: to build spaces that serve people, uplift communities, and
+                            endure over time. With deep local insight and a commitment to quality, we bring creativity,
+                            precision, and purpose to every project we take on.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <MissionValues />
+            <!-- <Timeline />
+            <Stats /> -->
+            <TeamSection :team="teamData" />
+            <ContactCTA />
+        </main>
+    </WebsiteLayout>
 </template>

@@ -6,36 +6,43 @@
           <div class="md:col-span-2">
             <h3 class="text-lg font-medium mb-6">UDC Africa</h3>
             <p class="text-gray-400 mb-6 leading-relaxed">
-              UDC Africa is one of the competitive East African architectural firm renowned for its superb architectural designs. As one of Rwanda's pre-eminent architectural firms, we have excelled by working with the country's most prominent corporate & public clients,
+                UDC Africa is a multidisciplinary company specialized in full-scale building design and construction, with integrated experience in civil engineering, land surveying, and cost management. We deliver innovative and context-based solutions that blend aesthetic design with structural integrity and cost-efficiency.
             </p>
             <div class="flex space-x-4">
               <a
-                href="https://www.udcafrica.com"
+                href="https://www.instagram.com/udcafrica"
                 class="text-gray-400 hover:text-udc-gold transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram :size="20" />
               </a>
-              <a
-                href="https://www.udcafrica.com"
+              <!-- <a
+                href="https://www.tiktok.com/@udcafrica"
                 class="text-gray-400 hover:text-udc-gold transition-colors"
                 aria-label="Twitter"
               >
-                <Twitter :size="20" />
-              </a>
+                <Tiktok :size="20" />
+              </a> -->
               <a
-                href="https://www.udcafrica.com"
+                href="https://www.linkedin.com/company/udcafrica/"
                 class="text-gray-400 hover:text-udc-gold transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin :size="20" />
               </a>
               <a
-                href="https://www.udcafrica.com"
+                href="https://www.facebook.com/profile.php?id=61563060225063&mibextid=ZbWKwL"
                 class="text-gray-400 hover:text-udc-gold transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook :size="20" />
+              </a>
+              <a
+                href="https://www.youtube.com/@UniversalDesignandConstruction"
+                class="text-gray-400 hover:text-udc-gold transition-colors"
+                aria-label="Facebook"
+              >
+                <Youtube :size="20" />
               </a>
             </div>
           </div>
@@ -92,11 +99,10 @@
             <h3 class="text-lg font-medium mb-6">Services</h3>
             <ul class="space-y-3">
               <li class="text-gray-400">Architectural Design</li>
-              <li class="text-gray-400">Engineering</li>
-              <li class="text-gray-400">Master Planning</li>
-              <li class="text-gray-400">Quantity Surveying</li>
-              <li class="text-gray-400">Property Valuation</li>
-              <li class="text-gray-400">Project Management</li>
+              <li class="text-gray-400">Structural Engineering</li>
+              <li class="text-gray-400">Land Surveying</li>
+              <li class="text-gray-400">Cost Management</li>
+              <li class="text-gray-400">Construction Management</li>
             </ul>
           </div>
 
@@ -147,7 +153,7 @@
   <script setup>
   import { computed } from 'vue'
   import { Link } from '@inertiajs/vue3'
-  import { Instagram, Twitter, Linkedin, Facebook, ArrowRight } from 'lucide-vue-next'
+  import { Instagram, Linkedin, Facebook, ArrowRight, Youtube } from 'lucide-vue-next'
 
   const currentYear = computed(() => new Date().getFullYear())
   </script>

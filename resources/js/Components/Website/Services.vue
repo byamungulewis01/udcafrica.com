@@ -5,8 +5,7 @@
         <div class="max-w-xl mb-8 md:mb-0">
           <h2 class="text-4xl font-light mb-6 tracking-tight">Our Services</h2>
           <p class="text-gray-600 leading-relaxed">
-            We offer a comprehensive range of architectural and design services,
-            tailored to meet the unique needs of each client and project.
+            Is your project related to construction? From site analysis and design to implementation and final delivery, we handle it all.
           </p>
         </div>
         <Link
@@ -50,13 +49,13 @@
 
 <script setup>
 import { Link } from '@inertiajs/vue3'
-import { ArrowRight, Building2, Wrench, Map } from 'lucide-vue-next'
+import { ArrowRight, DraftingCompass, Landmark, Ruler } from 'lucide-vue-next'
 
 const services = [
   {
-    icon: Building2,
-    title: "Architecture",
-    description: "Comprehensive architectural design services for residential, commercial, and institutional projects, from concept to completion.",
+    icon: DraftingCompass,
+    title: "Architectural Design",
+    description: "Comprehensive architectural design services for residential, commercial, and institutional buildings and more.",
     features: [
       "Conceptual Design & Planning",
       "3D Modeling & Visualization",
@@ -64,23 +63,23 @@ const services = [
     ]
   },
   {
-    icon: Wrench,
-    title: "Engineering",
-    description: "Integrated engineering solutions covering structural, civil, and MEP disciplines for efficient and sustainable buildings.",
+    icon: Landmark,
+    title: "Structural Engineering",
+    description: "Integrated engineering solutions that ensure the structural integrity, functionality, and longevity of buildings.",
     features: [
-      "Structural Engineering",
-      "MEP Systems Design",
-      "Sustainability Solutions"
+      "Structural Design & Analysis",
+      "Foundation & Framing Systems",
+      "Building Services Coordination"
     ]
   },
   {
-    icon: Map,
-    title: "Master Planning",
-    description: "Strategic planning and design for urban and regional development, including zoning, infrastructure, and community engagement.",
+    icon: Ruler,
+    title: "Land Surveying",
+    description: "Precision surveying for accurate site planning and efficient building development to save your project from risks.",
     features: [
-      "Urban Development Planning",
-      "Infrastructure Design",
-      "Community Engagement"
+      "Site & Topographic Surveys",
+      "Building Layout & Set-Out",
+      "As-Built Surveys"
     ]
   }
 ]

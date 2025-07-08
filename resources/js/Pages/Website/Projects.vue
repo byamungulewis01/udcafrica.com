@@ -1,20 +1,25 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, defineProps, onMounted } from 'vue'
 import { Head } from '@inertiajs/vue3'
 import WebsiteLayout from '@/Layouts/WebsiteLayout.vue'
 import ProjectFilter from '@/Components/Website/projects/ProjectFilter.vue'
 import ProjectGrid from '@/Components/Website/projects/ProjectGrid.vue'
-import projectsData from '@/data/projectsData.js'
 
-const categories = ['All', 'Residential', 'Commercial', 'Cultural', 'Urban Planning']
-const activeFilter = ref('All')
-
-const filteredProjects = computed(() => {
-    if (activeFilter.value === 'All') {
-        return projectsData
-    }
-    return projectsData.filter(project => project.category === activeFilter.value)
+ defineProps({
+    projects: Array,
 })
+
+// const categories = ['All', 'Residential', 'Commercial', 'Cultural', 'Urban Planning']
+// const activeFilter = ref('All')
+
+// const filteredProjects = computed(() => {
+//     if (activeFilter.value === 'All') {
+//         return props.projects
+//     }
+//     return props.projects.filter(project => project.category === activeFilter.value)
+// })
+
+
 
 </script>
 
@@ -30,9 +35,9 @@ const filteredProjects = computed(() => {
                     residential, commercial, cultural, and urban design spaces.
                 </p>
             </div>
-            <ProjectFilter :categories="categories" :activeFilter="activeFilter"
-                @update:activeFilter="activeFilter = $event" />
-            <ProjectGrid :projects="filteredProjects" />
+            <!-- <ProjectFilter :categories="categories" :activeFilter="activeFilter"
+                @update:activeFilter="activeFilter = $event" /> -->
+            <ProjectGrid :projects="projects" />
         </div>
     </WebsiteLayout>
 </template>

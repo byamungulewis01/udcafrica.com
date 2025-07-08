@@ -74,14 +74,11 @@ class ContactRequestController extends Controller
         RateLimiter::hit($key, $decayMinutes * 60);
 
         $validator = Validator::make($request->all(), [
-            'firstName' => 'required|string|max:255',
-            'lastName' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'nullable|string|max:20',
+            'subject' => 'required|string|max:255',
             'message' => 'required|string',
-            'projectType' => 'required|string|max:255',
-            'budget' => 'required|string|max:255',
-            'timeline' => 'required|string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -90,23 +87,20 @@ class ContactRequestController extends Controller
 
         // Create contact request
         $contactRequest = ContactRequest::create([
-            'firstName' => $request->firstName,
-            'lastName' => $request->lastName,
+            'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'message' => $request->message,
-            'projectType' => $request->projectType,
-            'budget' => $request->budget,
-            'timeline' => $request->timeline,
+            'subject' => $request->subject,
             'status' => 'new'
         ]);
 
         // Send notification to info@resilience.rw
-        $infoEmail = env('INFO_EMAIL', 'info@resilience.rw');
+        // $infoEmail = env('INFO_EMAIL', 'info@resilience.rw');
 
         // Use Laravel's on-demand notifications instead
-        Notification::route('mail', $infoEmail)
-            ->notify(new NewContactRequest($contactRequest));
+        // Notification::route('mail', $infoEmail)
+        //     ->notify(new NewContactRequest($contactRequest));
 
         return back()->with('success', 'Thank you for your message. We will get back to you soon!');
     }
