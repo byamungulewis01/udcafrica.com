@@ -105,7 +105,7 @@ const fetchFeaturedBlogs = async () => {
 
 // Handle image load errors
 const handleImageError = (event) => {
-    event.target.src = '/UDC-LOGO.png' // Fallback image
+    event.target.src = '/udc-africa-opengraph.jpg' // Fallback image
 }
 
 // Fetch data on component mount

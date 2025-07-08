@@ -108,7 +108,7 @@
 
   // Handle image load errors
   const handleImageError = (event) => {
-    event.target.src = '/UDC-Project-1.jpg' // Fallback image
+    event.target.src = '/udc-africa-opengraph.jpg' // Fallback image
   }
 
   // Fetch data on component mount
