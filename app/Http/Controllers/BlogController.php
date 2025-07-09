@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 use App\Models\BlogCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
@@ -60,12 +59,12 @@ class BlogController extends Controller
 
             $data = $request->all();
 
-            // Handle featured image upload (move to public/storage/blogs)
+            // Handle featured image upload (move to public/uploads/blogs)
             if ($request->hasFile('featured_image')) {
                 $image = $request->file('featured_image');
                 $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('storage/blogs'), $imageName);
-                $data['featured_image'] = '/storage/blogs/' . $imageName;
+                $image->move(public_path('uploads/blogs'), $imageName);
+                $data['featured_image'] = '/uploads/blogs/' . $imageName;
             }
 
             // Generate slug if not provided
@@ -133,8 +132,8 @@ class BlogController extends Controller
                 }
                 $image = $request->file('featured_image');
                 $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('storage/blogs'), $imageName);
-                $data['featured_image'] = '/storage/blogs/' . $imageName;
+                $image->move(public_path('uploads/blogs'), $imageName);
+                $data['featured_image'] = '/uploads/blogs/' . $imageName;
             } else {
                 $data['featured_image'] = $blog->featured_image;
             }

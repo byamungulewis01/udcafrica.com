@@ -12,7 +12,7 @@ defineProps({
 <template>
     <WebsiteLayout>
 
-        <Head title="Blog | UDC Africa" />
+        <Head title="Blog" />
         <main>
             <div class="container mx-auto px-4 py-24">
                 <div class="max-w-4xl mx-auto text-center mb-16">

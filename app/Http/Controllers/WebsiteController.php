@@ -113,25 +113,26 @@ class WebsiteController extends Controller
     public function blogDetails($slug)
     {
         $blog = Blog::with(['category'])
-            ->where('slug', $slug)
-            ->firstOrFail();
+        ->where('slug', $slug)
+        ->firstOrFail();
+
 
         // Previous and next blogs by order
         $prevBlog = Blog::where('is_published', true)
-            ->where('order', '<', $blog->order)
-            ->orderBy('order', 'desc')
-            ->first();
+        ->where('order', '<', $blog->order)
+        ->orderBy('order', 'desc')
+        ->first();
         $nextBlog = Blog::where('is_published', true)
-            ->where('order', '>', $blog->order)
-            ->orderBy('order', 'asc')
-            ->first();
+        ->where('order', '>', $blog->order)
+        ->orderBy('order', 'asc')
+        ->first();
 
         // Related blogs: same category, not current
         $relatedBlogs = Blog::where('is_published', true)
             ->where('category_id', $blog->category_id)
             ->where('id', '!=', $blog->id)
             ->orderBy('order')
-            ->limit(3)
+            ->limit(5)
             ->get();
 
         return $this->renderWithSeo('Website/BlogDetails', [

@@ -15,7 +15,6 @@ class WebsiteController extends Controller
     {
         $collection = Project::with(['category'])
             ->where('is_published', true)
-            ->where('is_featured', true)
             ->orderBy('order')
             ->latest()
             ->get();

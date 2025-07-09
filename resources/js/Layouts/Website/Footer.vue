@@ -142,7 +142,7 @@
             &copy; {{ currentYear }} UDC Africa. All rights reserved.
           </p>
           <p class="text-gray-400 text-sm mb-4 md:mb-0">
-            Digitalized by <a href="https://azinex.rw" class="text-udc-gold hover:text-udc-gold transition-colors font-semibold">Azinex</a>
+            Digitalized by <a href="https://azinex.net" target="_blank" rel="noopener noreferrer" class="text-udc-gold hover:text-udc-gold transition-colors font-semibold">Azinex</a>
           </p>
 
         </div>

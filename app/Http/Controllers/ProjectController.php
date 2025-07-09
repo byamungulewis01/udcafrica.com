@@ -7,7 +7,6 @@ use App\Models\ProjectCategory;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -73,12 +72,12 @@ class ProjectController extends Controller
 
             $data = $request->all();
 
-            // Handle featured image upload (move to public/storage/projects)
+            // Handle featured image upload (move to public/uploads/projects)
             if ($request->hasFile('featured_image')) {
                 $image = $request->file('featured_image');
                 $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('storage/projects'), $imageName);
-                $data['featured_image'] = '/storage/projects/' . $imageName;
+                $image->move(public_path('uploads/projects'), $imageName);
+                $data['featured_image'] = '/uploads/projects/' . $imageName;
             }
 
             // Handle gallery images upload (move to public/uploads/projects/gallery)
@@ -86,8 +85,8 @@ class ProjectController extends Controller
                 $galleryPaths = [];
                 foreach ($request->file('gallery') as $file) {
                     $galleryName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-                    $file->move(public_path('storage/projects/gallery'), $galleryName);
-                    $galleryPaths[] = '/storage/projects/gallery/' . $galleryName;
+                    $file->move(public_path('uploads/projects/gallery'), $galleryName);
+                    $galleryPaths[] = '/uploads/projects/gallery/' . $galleryName;
                 }
                 $data['gallery'] = $galleryPaths;
             }
@@ -167,7 +166,7 @@ class ProjectController extends Controller
 
             $data = $request->all();
 
-            // Handle featured image upload (move to public/storage/projects)
+            // Handle featured image upload (move to public/uploads/projects)
             if ($request->hasFile('featured_image')) {
                 // Delete old featured image if exists and is a local file
                 if ($project->featured_image && file_exists(public_path($project->featured_image))) {
@@ -175,8 +174,8 @@ class ProjectController extends Controller
                 }
                 $image = $request->file('featured_image');
                 $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('storage/projects'), $imageName);
-                $data['featured_image'] = '/storage/projects/' . $imageName;
+                $image->move(public_path('uploads/projects'), $imageName);
+                $data['featured_image'] = '/uploads/projects/' . $imageName;
             } else {
                 // Keep existing featured image
                 $data['featured_image'] = $project->featured_image;
@@ -195,8 +194,8 @@ class ProjectController extends Controller
                 $galleryPaths = [];
                 foreach ($request->file('gallery') as $file) {
                     $galleryName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
-                    $file->move(public_path('storage/projects/gallery'), $galleryName);
-                    $galleryPaths[] = '/storage/projects/gallery/' . $galleryName;
+                    $file->move(public_path('uploads/projects/gallery'), $galleryName);
+                    $galleryPaths[] = '/uploads/projects/gallery/' . $galleryName;
                 }
                 $data['gallery'] = $galleryPaths;
             } else {

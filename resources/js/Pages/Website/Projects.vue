@@ -37,7 +37,7 @@ import ProjectGrid from '@/Components/Website/projects/ProjectGrid.vue'
             </div>
             <!-- <ProjectFilter :categories="categories" :activeFilter="activeFilter"
                 @update:activeFilter="activeFilter = $event" /> -->
-            <ProjectGrid :projects="projects" />
+            <ProjectGrid />
         </div>
     </WebsiteLayout>
 </template>
