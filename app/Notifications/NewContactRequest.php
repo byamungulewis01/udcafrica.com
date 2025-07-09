@@ -27,12 +27,9 @@ class NewContactRequest extends Notification implements ShouldQueue
             ->subject('New Contact Request Received')
             ->greeting('Hello!')
             ->line('A new contact request has been submitted.')
-            ->line("From: {$this->contactRequest->firstName} {$this->contactRequest->lastName}")
+            ->line("From: {$this->contactRequest->name}")
             ->line("Email: {$this->contactRequest->email}")
             ->line("Phone: {$this->contactRequest->phone}")
-            ->line("Project Type: {$this->contactRequest->projectType}")
-            ->line("Budget: {$this->contactRequest->budget}")
-            ->line("Timeline: {$this->contactRequest->timeline}")
             ->line("Message: {$this->contactRequest->message}")
             // ->action('View Request', route('contact-requests.index'))
             ->line('Thank you for using our application!');

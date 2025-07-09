@@ -95,12 +95,12 @@ class ContactRequestController extends Controller
             'status' => 'new'
         ]);
 
-        // Send notification to info@resilience.rw
-        // $infoEmail = env('INFO_EMAIL', 'info@resilience.rw');
+        // Send notification to info@udcafrica.com
+        $infoEmail = env('INFO_EMAIL', 'info@udcafrica.com');
 
         // Use Laravel's on-demand notifications instead
-        // Notification::route('mail', $infoEmail)
-        //     ->notify(new NewContactRequest($contactRequest));
+        Notification::route('mail', $infoEmail)
+            ->notify(new NewContactRequest($contactRequest));
 
         return back()->with('success', 'Thank you for your message. We will get back to you soon!');
     }
