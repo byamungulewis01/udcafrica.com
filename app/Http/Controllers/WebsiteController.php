@@ -151,7 +151,7 @@ class WebsiteController extends Controller
     public function youtubePresenter()
     {
         return $this->renderWithSeo('Website/YouTubePresenter', [], [
-            'title' => "We’re Hiring: YouTube Presenter | UDC Africa",
+            'title' => "We’re Hiring: YouTube Presenter",
             'description' => 'Join UDC Africa as our YouTube Presenter and help us bring our vision to life on-screen through powerful video content. Apply now to be the face and voice of our brand!',
             'keywords' => 'YouTube presenter job, media jobs Rwanda, digital media careers, UDC Africa careers',
             'canonical' => url('/careers/youtube-presenter'),
