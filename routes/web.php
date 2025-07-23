@@ -28,6 +28,7 @@ Route::get('/about', [WebsiteController::class, 'about'])->name('about');
 Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
 Route::get('/blog', [WebsiteController::class, 'blog'])->name('blog');
 Route::get('/blog/{slug}', [WebsiteController::class, 'blogDetails'])->name('blog.details');
+Route::get('/careers/youtube-presenter', [WebsiteController::class, 'youtubePresenter'])->name('careers.youtube-presenter');
 
 Route::post('/contact', [ContactRequestController::class, 'store'])->name('contact.store');
 

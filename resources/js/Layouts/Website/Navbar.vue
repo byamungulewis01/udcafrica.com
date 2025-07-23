@@ -26,6 +26,10 @@
                         :class="isActiveLink('/blog') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
                     Blog
                     </Link>
+                    <Link href="/careers/youtube-presenter"
+                        :class="isActiveLink('/careers/youtube-presenter') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
+                    Careers
+                    </Link>
                     <Link href="/contact"
                         :class="isActiveLink('/contact') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
                     Contact
@@ -60,6 +64,9 @@
                 </Link>
                 <Link href="/blog" :class="isActiveLink('/blog') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
                 Journal
+                </Link>
+                <Link href="/careers/youtube-presenter" :class="isActiveLink('/careers/youtube-presenter') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
+                Careers
                 </Link>
                 <Link href="/contact" :class="isActiveLink('/contact') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
                 Contact
