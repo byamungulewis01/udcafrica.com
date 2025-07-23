@@ -127,7 +127,7 @@ function copyEmail() {
                     <p class="text-base text-gray-700 leading-relaxed mb-2">
                         Ready to bring your on-screen personality and creativity to UDC Africa?
                         <br />
-                        Submit your <strong>CV, portfolio/showreel</strong> (video samples required), and a brief
+                        Submit your <strong>CV,</strong> and a brief
                         <strong>cover letter</strong> telling us
                         why you’re the perfect fit.
                         <br />
