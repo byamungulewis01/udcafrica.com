@@ -130,9 +130,6 @@ function copyEmail() {
                         Submit your <strong>CV</strong> and a brief
                         <strong>cover letter</strong> telling us
                         why you’re the perfect fit.
-                        <br />
-                        <span class="font-semibold">Note:</span> Videos and heavy designs should be shared as a
-                        download/view link.
                     </p>
                     <div class="flex flex-col md:flex-row md:items-center gap-4 mt-4">
                         <a href="mailto:contact@udcafrica.com"
