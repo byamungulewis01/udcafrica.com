@@ -127,4 +127,9 @@ Route::get('/sitemap.xml', function () {
     return $sitemap->toResponse(request());
 });
 
+// Catch-all route for 404 Not Found (must be last)
+Route::fallback(function () {
+    return Inertia::render('Errors/NotFound');
+});
+
 require __DIR__ . '/auth.php';
