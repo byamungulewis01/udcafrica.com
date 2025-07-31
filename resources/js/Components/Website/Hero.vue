@@ -91,17 +91,17 @@ const slides = [
   {
     title: "Universal Design & Construction Africa Ltd",
     subtitle: "A design and construction company delivering innovative, sustainable, and cost-effective buildings across the region.",
-    image: "/Hello-section-1.jpg",
+    image: "/Hero-section-1.jpg",
   },
   {
     title: "Engineering the future, Building with purpose.",
     subtitle: "We shape environments that empower communities, drive innovation, and stand the test of time.",
-    image: "/Hello-section-2.jpg",
+    image: "/Hero-section-2.jpg",
   },
   {
     title: "Construction Excellence Redefined",
     subtitle: "Every project is a fusion of advanced engineering and intentional design, built to serve today and inspire tomorrow.",
-    image: "/Hello-section-3.jpg",
+    image: "/Hero-section-3.jpg",
   }
 ]
 

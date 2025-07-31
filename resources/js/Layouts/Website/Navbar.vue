@@ -7,20 +7,20 @@
                 </Link>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    <Link href="/" :class="isActiveLink('/') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
+                    <!-- <Link href="/" :class="isActiveLink('/') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
                     Home
-                    </Link>
-                    <Link href="/projects"
-                        :class="isActiveLink('/projects') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
-                    Projects
+                </Link> -->
+                    <Link href="/about"
+                        :class="isActiveLink('/about') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
+                    About
                     </Link>
                     <Link href="/services"
                         :class="isActiveLink('/services') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
                     Services
                     </Link>
-                    <Link href="/about"
-                        :class="isActiveLink('/about') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
-                    About
+                    <Link href="/projects"
+                        :class="isActiveLink('/projects') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
+                    Projects
                     </Link>
                     <Link href="/blog"
                         :class="isActiveLink('/blog') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
@@ -48,24 +48,25 @@
 
         <div :class="mobileMenuClasses">
             <div class="flex flex-col items-center space-y-8 text-2xl">
-                <Link href="/" :class="isActiveLink('/') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
+                <!-- <Link href="/" :class="isActiveLink('/') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
                 Home
-                </Link>
-                <Link href="/projects"
-                    :class="isActiveLink('/projects') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
-                Projects
+                </Link> -->
+                <Link href="/about" :class="isActiveLink('/about') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
+                About
                 </Link>
                 <Link href="/services"
                     :class="isActiveLink('/services') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
                 Services
                 </Link>
-                <Link href="/about" :class="isActiveLink('/about') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
-                About
+                <Link href="/projects"
+                    :class="isActiveLink('/projects') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
+                Projects
                 </Link>
                 <Link href="/blog" :class="isActiveLink('/blog') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
-                Journal
+                Blog
                 </Link>
-                <Link href="/careers/youtube-presenter" :class="isActiveLink('/careers/youtube-presenter') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
+                <Link href="/careers/youtube-presenter"
+                    :class="isActiveLink('/careers/youtube-presenter') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
                 Careers
                 </Link>
                 <Link href="/contact" :class="isActiveLink('/contact') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
@@ -115,17 +116,17 @@ const isActiveLink = (href) => {
 
 const navbarClasses = computed(() => {
     return `fixed w-full z-50 transition-all duration-300 ${scrolled.value
-            ? 'bg-white shadow-md py-4'
-            : 'bg-transparent py-6'
+        ? 'bg-white shadow-md py-4'
+        : 'bg-transparent py-6'
         }`
 })
 
 const linkClasses = computed(() => {
     return `relative font-medium transition-colors ${scrolled.value
-            ? 'text-udc-dark hover:text-black'
-            : page.url === '/'
-                ? 'text-white hover:text-white/80'
-                : 'text-udc-dark hover:text-black'
+        ? 'text-udc-dark hover:text-black'
+        : page.url === '/'
+            ? 'text-white hover:text-white/80'
+            : 'text-udc-dark hover:text-black'
         }`
 })
 

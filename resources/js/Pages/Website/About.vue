@@ -7,7 +7,6 @@ import Timeline from '@/Components/Website/about/Timeline.vue'
 import Stats from '@/Components/Website/about/Stats.vue'
 import TeamSection from '@/Components/Website/about/TeamSection.vue'
 import ContactCTA from '@/Components/Website/ContactCTA.vue'
-import teamData from '@/data/teamData.js'
 </script>
 
 <template>
@@ -41,7 +40,7 @@ import teamData from '@/data/teamData.js'
             <MissionValues />
             <!-- <Timeline />
             <Stats /> -->
-            <TeamSection :team="teamData" />
+            <TeamSection />
             <ContactCTA />
         </main>
     </WebsiteLayout>
