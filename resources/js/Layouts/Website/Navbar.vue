@@ -7,9 +7,9 @@
                 </Link>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    <!-- <Link href="/" :class="isActiveLink('/') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
+                    <Link href="/" :class="isActiveLink('/') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
                     Home
-                </Link> -->
+                    </Link>
                     <Link href="/about"
                         :class="isActiveLink('/about') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
                     About
@@ -22,14 +22,14 @@
                         :class="isActiveLink('/projects') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
                     Projects
                     </Link>
-                    <Link href="/blog"
+                    <!-- <Link href="/blog"
                         :class="isActiveLink('/blog') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
                     Blog
-                    </Link>
-                    <Link href="/careers/youtube-presenter"
+                    </Link> -->
+                    <!-- <Link href="/careers/youtube-presenter"
                         :class="isActiveLink('/careers/youtube-presenter') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
                     Careers
-                    </Link>
+                    </Link> -->
                     <Link href="/contact"
                         :class="isActiveLink('/contact') ? `${linkClasses} ${activeLinkClasses}` : linkClasses">
                     Contact
@@ -48,9 +48,9 @@
 
         <div :class="mobileMenuClasses">
             <div class="flex flex-col items-center space-y-8 text-2xl">
-                <!-- <Link href="/" :class="isActiveLink('/') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
+                <Link href="/" :class="isActiveLink('/') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
                 Home
-                </Link> -->
+                </Link>
                 <Link href="/about" :class="isActiveLink('/about') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
                 About
                 </Link>
@@ -62,13 +62,13 @@
                     :class="isActiveLink('/projects') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
                 Projects
                 </Link>
-                <Link href="/blog" :class="isActiveLink('/blog') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
+                <!-- <Link href="/blog" :class="isActiveLink('/blog') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
                 Blog
-                </Link>
-                <Link href="/careers/youtube-presenter"
+                </Link> -->
+                <!-- <Link href="/careers/youtube-presenter"
                     :class="isActiveLink('/careers/youtube-presenter') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
                 Careers
-                </Link>
+                </Link> -->
                 <Link href="/contact" :class="isActiveLink('/contact') ? 'text-udc-gold font-medium' : 'text-udc-dark'">
                 Contact
                 </Link>

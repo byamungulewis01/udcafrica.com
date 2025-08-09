@@ -75,14 +75,14 @@
                   About
                 </Link>
               </li>
-              <li>
+              <!-- <li>
                 <Link
                   href="/blog"
                   class="text-gray-400 hover:text-udc-gold transition-colors"
                 >
                   Blog
                 </Link>
-              </li>
+              </li> -->
               <li>
                 <Link
                   href="/contact"

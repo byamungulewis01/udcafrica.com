@@ -26,9 +26,9 @@ Route::get('/projects', [WebsiteController::class, 'projects'])->name('projects'
 Route::get('/projects/{slug}', [WebsiteController::class, 'projectDetails'])->name('project.details');
 Route::get('/about', [WebsiteController::class, 'about'])->name('about');
 Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
-Route::get('/blog', [WebsiteController::class, 'blog'])->name('blog');
-Route::get('/blog/{slug}', [WebsiteController::class, 'blogDetails'])->name('blog.details');
-Route::get('/careers/youtube-presenter', [WebsiteController::class, 'youtubePresenter'])->name('careers.youtube-presenter');
+// Route::get('/blog', [WebsiteController::class, 'blog'])->name('blog');
+// Route::get('/blog/{slug}', [WebsiteController::class, 'blogDetails'])->name('blog.details');
+// Route::get('/careers/youtube-presenter', [WebsiteController::class, 'youtubePresenter'])->name('careers.youtube-presenter');
 
 Route::post('/contact', [ContactRequestController::class, 'store'])->name('contact.store');
 
@@ -112,14 +112,14 @@ Route::get('/sitemap.xml', function () {
         ->add(Url::create('/services'))
         ->add(Url::create('/about'))
         ->add(Url::create('/contact'))
-        ->add(Url::create('/blog'))
+        // ->add(Url::create('/blog'))
         ->add(Url::create('/projects'));
 
     // Add more URLs as needed, e.g., dynamic blog posts, products, etc.
-    $blogs = Blog::where('is_published', true)->get();
-    foreach ($blogs as $blog) {
-        $sitemap->add(Url::create('/blog/' . $blog->slug));
-    }
+    // $blogs = Blog::where('is_published', true)->get();
+    // foreach ($blogs as $blog) {
+    //     $sitemap->add(Url::create('/blog/' . $blog->slug));
+    // }
     $projects = Project::where('is_published', true)->get();
     foreach ($projects as $project) {
         $sitemap->add(Url::create('/projects/' . $project->slug));
