@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, defineProps, onMounted } from 'vue'
+import {defineProps } from 'vue'
 import { Head } from '@inertiajs/vue3'
 import WebsiteLayout from '@/Layouts/WebsiteLayout.vue'
 import ProjectFilter from '@/Components/Website/projects/ProjectFilter.vue'
@@ -7,6 +7,8 @@ import ProjectGrid from '@/Components/Website/projects/ProjectGrid.vue'
 
  defineProps({
     projects: Array,
+    seo: Object,
+
 })
 
 // const categories = ['All', 'Residential', 'Commercial', 'Cultural', 'Urban Planning']
@@ -26,7 +28,8 @@ import ProjectGrid from '@/Components/Website/projects/ProjectGrid.vue'
 <template>
     <WebsiteLayout>
 
-        <Head title="Projects" />
+                <Head :title="seo.title" />
+
         <div class="container mx-auto px-4 py-24">
             <div class="max-w-4xl mx-auto text-center mb-16">
                 <h1 class="text-5xl font-light mb-6 tracking-tight">Our Projects</h1>

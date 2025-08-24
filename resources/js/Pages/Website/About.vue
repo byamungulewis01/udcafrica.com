@@ -3,16 +3,19 @@ import { Head } from '@inertiajs/vue3'
 import WebsiteLayout from '@/Layouts/WebsiteLayout.vue'
 import AboutHero from '@/Components/Website/about/AboutHero.vue'
 import MissionValues from '@/Components/Website/about/MissionValues.vue'
-import Timeline from '@/Components/Website/about/Timeline.vue'
-import Stats from '@/Components/Website/about/Stats.vue'
+
 import TeamSection from '@/Components/Website/about/TeamSection.vue'
 import ContactCTA from '@/Components/Website/ContactCTA.vue'
+
+defineProps({
+    seo: Object,
+})
 </script>
 
 <template>
     <WebsiteLayout>
 
-        <Head title="About Us" />
+        <Head :title="seo.title" />
         <main class="bg-udc-light">
             <AboutHero />
 

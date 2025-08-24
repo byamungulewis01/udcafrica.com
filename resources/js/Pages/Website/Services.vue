@@ -62,11 +62,15 @@ const services = ref([
         ]
     }
 ])
+defineProps({
+    seo: Object,
+})
 </script>
 <template>
     <WebsiteLayout>
 
-        <Head title="Services" />
+        <Head :title="seo.title" />
+
 
         <div class="container mx-auto px-4 py-24">
             <div class="max-w-4xl mx-auto text-center mb-16">
@@ -101,7 +105,9 @@ const services = ref([
                 <div class="max-w-4xl mx-auto text-center mb-16">
                     <h2 class="text-3xl font-light mb-6 tracking-tight">Why Choose UDC Africa?</h2>
                     <p class="text-lg text-gray-600 leading-relaxed">
-                        We go beyond construction; we create spaces that serve, inspire, and endure. Choosing us means partnering with a team that brings clarity, integrity, and innovation to every stage of your building project.
+                        We go beyond construction; we create spaces that serve, inspire, and endure. Choosing us means
+                        partnering with a team that brings clarity, integrity, and innovation to every stage of your
+                        building project.
                     </p>
                 </div>
 
@@ -113,42 +119,48 @@ const services = ref([
                                 <span class="w-1.5 h-1.5 bg-udc-gold rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                 <div>
                                     <h4 class="font-medium mb-1">Understanding the Vision</h4>
-                                    <p class="text-gray-600 text-sm">Every project begins with listening to your goals, site conditions, users, and community context. </p>
+                                    <p class="text-gray-600 text-sm">Every project begins with listening to your goals,
+                                        site conditions, users, and community context. </p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <span class="w-1.5 h-1.5 bg-udc-gold rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                 <div>
                                     <h4 class="font-medium mb-1">Collaborative Design</h4>
-                                    <p class="text-gray-600 text-sm">Our team works together from day one; blending architecture, engineering, and cost planning.</p>
+                                    <p class="text-gray-600 text-sm">Our team works together from day one; blending
+                                        architecture, engineering, and cost planning.</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <span class="w-1.5 h-1.5 bg-udc-gold rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                 <div>
                                     <h4 class="font-medium mb-1">Technical Excellence</h4>
-                                    <p class="text-gray-600 text-sm">We bring precision and expertise to every drawing, model, and detail.</p>
+                                    <p class="text-gray-600 text-sm">We bring precision and expertise to every drawing,
+                                        model, and detail.</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <span class="w-1.5 h-1.5 bg-udc-gold rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                 <div>
                                     <h4 class="font-medium mb-1">Smart Cost & Time Management</h4>
-                                    <p class="text-gray-600 text-sm">With in-house cost managers, we monitor budgets closely and adjust strategies proactively.</p>
+                                    <p class="text-gray-600 text-sm">With in-house cost managers, we monitor budgets
+                                        closely and adjust strategies proactively.</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <span class="w-1.5 h-1.5 bg-udc-gold rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                 <div>
                                     <h4 class="font-medium mb-1">Seamless Execution</h4>
-                                    <p class="text-gray-600 text-sm">During construction, we oversee progress, coordinate teams, and uphold quality control.</p>
+                                    <p class="text-gray-600 text-sm">During construction, we oversee progress,
+                                        coordinate teams, and uphold quality control.</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <span class="w-1.5 h-1.5 bg-udc-gold rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                 <div>
                                     <h4 class="font-medium mb-1">Enduring Relationships</h4>
-                                    <p class="text-gray-600 text-sm">We stand by our work and available to support because we take every project as a partnership.</p>
+                                    <p class="text-gray-600 text-sm">We stand by our work and available to support
+                                        because we take every project as a partnership.</p>
                                 </div>
                             </li>
                         </ul>
@@ -161,7 +173,8 @@ const services = ref([
                                 <span class="w-1.5 h-1.5 bg-udc-gold rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                 <div>
                                     <h4 class="font-medium mb-1">Consultation & Needs Assessment</h4>
-                                    <p class="text-gray-600 text-sm">We begin by understanding your goals, budget, site, and vision.
+                                    <p class="text-gray-600 text-sm">We begin by understanding your goals, budget, site,
+                                        and vision.
                                     </p>
                                 </div>
                             </li>
@@ -169,35 +182,40 @@ const services = ref([
                                 <span class="w-1.5 h-1.5 bg-udc-gold rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                 <div>
                                     <h4 class="font-medium mb-1">Site Analysis & Feasibility</h4>
-                                    <p class="text-gray-600 text-sm">Our team conducts thorough site assessments and feasibility studies.</p>
+                                    <p class="text-gray-600 text-sm">Our team conducts thorough site assessments and
+                                        feasibility studies.</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <span class="w-1.5 h-1.5 bg-udc-gold rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                 <div>
                                     <h4 class="font-medium mb-1">Concept Design</h4>
-                                    <p class="text-gray-600 text-sm">We translate your vision into initial sketches and layouts.</p>
+                                    <p class="text-gray-600 text-sm">We translate your vision into initial sketches and
+                                        layouts.</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <span class="w-1.5 h-1.5 bg-udc-gold rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                 <div>
                                     <h4 class="font-medium mb-1">Detailed Design & Documentation</h4>
-                                    <p class="text-gray-600 text-sm">We refine the design and prepare full architectural, engineering drawings and estimates.</p>
+                                    <p class="text-gray-600 text-sm">We refine the design and prepare full
+                                        architectural, engineering drawings and estimates.</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <span class="w-1.5 h-1.5 bg-udc-gold rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                 <div>
                                     <h4 class="font-medium mb-1">Construction & Supervision</h4>
-                                    <p class="text-gray-600 text-sm">We manage the building process from groundbreaking to handover.</p>
+                                    <p class="text-gray-600 text-sm">We manage the building process from groundbreaking
+                                        to handover.</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <span class="w-1.5 h-1.5 bg-udc-gold rounded-full mt-2 mr-3 flex-shrink-0"></span>
                                 <div>
                                     <h4 class="font-medium mb-1">Handover & Support</h4>
-                                    <p class="text-gray-600 text-sm">Once construction is complete, we carry out final inspections and deliver documentation.</p>
+                                    <p class="text-gray-600 text-sm">Once construction is complete, we carry out final
+                                        inspections and deliver documentation.</p>
                                 </div>
                             </li>
                         </ul>

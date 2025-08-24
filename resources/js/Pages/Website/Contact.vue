@@ -5,12 +5,17 @@ import { MapPin, Phone, Mail } from 'lucide-vue-next'
 import Map from '@/Components/Website/Map.vue'
 import ContactForm from '@/Components/Website/ContactForm.vue'
 
+defineProps({
+    seo: Object,
+})
+
 </script>
 
 <template>
     <WebsiteLayout>
 
-        <Head title="Contact" />
+        <Head :title="seo.title" />
+
         <section class="pb-24 bg-udc-light">
             <div class="container mx-auto px-4 py-24">
                 <div class="max-w-4xl mx-auto text-center mb-16">

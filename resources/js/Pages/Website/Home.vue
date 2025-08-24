@@ -7,11 +7,14 @@ import AboutPreview from '@/Components/Website/AboutPreview.vue'
 // import LatestNews from '@/Components/Website/LatestNews.vue'
 import ContactCTA from '@/Components/Website/ContactCTA.vue'
 import { Head } from '@inertiajs/vue3'
+defineProps({
+    seo: Object,
+})
 </script>
 <template>
     <WebsiteLayout>
 
-        <Head title="Home" />
+        <Head :title="seo.title" />
         <Hero />
         <FeaturedProjects />
         <Services />

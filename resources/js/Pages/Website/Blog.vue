@@ -4,15 +4,15 @@ import WebsiteLayout from '@/Layouts/WebsiteLayout.vue'
 import BlogCard from '@/Components/Website/blog/BlogCard.vue'
 defineProps({
     blogs: Array,
+    seo: Object,
 })
-
 
 </script>
 
 <template>
     <WebsiteLayout>
 
-        <Head title="Blog" />
+        <Head :title="seo.title" />
         <main>
             <div class="container mx-auto px-4 py-24">
                 <div class="max-w-4xl mx-auto text-center mb-16">
